@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>LogInjector</title>
+</head>
+<body>
+    
+    <h1>LOG INGESTOR</h1>
+    <div class="logo-container">
+            <img src="logo.svg" alt="Logo" class="logo">
+        </div>
+    <div class="container">
+
+        
+
+        <div class="content">
+            <div class="form-container">
+                <div>
+                    <label>
+                        <input type="radio" name="logOption" value="insert" checked> Insert Log
+                    </label>
+                    <label>
+                        <input type="radio" name="logOption" value="search"> Search using filters
+                    </label>
+                    <label>
+                        <input type="radio" name="logOption" value="fullText"> Search by Text
+                    </label>
+                </div>
+
+                <form id="insertLogForm">
+                    <div class="caption">Enter your log data to submit:</div>
+                    <textarea id="logData" class="modern-logData" placeholder="Enter JSON log data"></textarea>
+                    <button type="button" onclick="submitInsertLogForm()" class="modern-button blue-button">Submit</button>
+                </form>
+
+                <form id="fullTextForm" style="display: none;">
+                    <div class="caption">Enter your text to submit:</div>
+                    <textarea id="fullText" class="modern-logData" placeholder="Enter the text by which you wanna query"></textarea>
+                    <button type="button" onclick="submitFullTextForm()" class="modern-button blue-button">Submit</button>
+                </form>
+
+                <form id="searchLogsForm" style="display: none;">
+                    <form id="logForm">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="levelCheckbox" name="levelCheckbox" class="modern-checkbox">
+                        <label for="levelCheckbox">Level</label>
+                        <textarea id="level" name="level" class="modern-textarea" placeholder="Enter Level"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="messageCheckbox" name="messageCheckbox" class="modern-checkbox">
+                        <label for="messageCheckbox">Message</label>
+                        <textarea id="message" name="message" class="modern-textarea" placeholder="Enter Message"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="resourceIdCheckbox" name="resourceIdCheckbox" class="modern-checkbox">
+                        <label for="resourceIdCheckbox">Resource ID</label>
+                        <textarea id="resourceId" name="resourceId" class="modern-textarea" placeholder="Enter Resource ID"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="timestampCheckbox" name="timestampCheckbox" class="modern-checkbox">
+                        <label for="timestampCheckbox">Timestamp</label>
+                        <textarea id="timestamp" name="timestamp" class="modern-textarea" placeholder="Enter Timestamp"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="traceIdCheckbox" name="traceIdCheckbox" class="modern-checkbox">
+                        <label for="traceIdCheckbox">Trace ID</label>
+                        <textarea id="traceId" name="traceId" class="modern-textarea" placeholder="Enter Trace ID"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="spanIdCheckbox" name="spanIdCheckbox" class="modern-checkbox">
+                        <label for="spanIdCheckbox">Span ID</label>
+                        <textarea id="spanId" name="spanId" class="modern-textarea" placeholder="Enter Span ID"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="commitCheckbox" name="commitCheckbox" class="modern-checkbox">
+                        <label for="commitCheckbox">Commit</label>
+                        <textarea id="commit" name="commit" class="modern-textarea" placeholder="Enter Commit"></textarea>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="parentResourceIdCheckbox" name="parentResourceIdCheckbox" class="modern-checkbox">
+                        <label for="parentResourceIdCheckbox">Parent Resource ID</label>
+                        <textarea id="parentResourceId" name="parentResourceId" class="modern-textarea" placeholder="Enter Parent Resource ID"></textarea>
+                    </div>
+                    <button type="button" onclick="submitSearchLogsForm()" class="modern-button blue-button">Submit</button>
+                </form>
+            </div>
+
+            <div class="response-container">
+                <h2>Response</h2>
+                <pre id="response"></pre>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

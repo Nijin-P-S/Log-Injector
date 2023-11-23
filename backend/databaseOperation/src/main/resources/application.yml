@@ -1,0 +1,27 @@
+
+
+server:
+  port: 8081
+
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/logEntry
+#      username: dyte
+#      password: password
+  application:
+    name: dbOperation
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+rabbitmq:
+  exchanges:
+    internal: internal.exchange
+  queues:
+    dbOperation: dpOperation.queue
+  routing-keys:
+    internal-dpOperation: internal.dpOperation.routing-key
