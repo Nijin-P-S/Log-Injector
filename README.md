@@ -1,5 +1,5 @@
 
-#       DYTE LOG INGECTOR
+#      LOG INGECTOR
 
 ## Objective
 
